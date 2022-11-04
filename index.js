@@ -5,18 +5,26 @@ const csv = require('csvtojson');
 const { 
     writeFileSync, 
     existsSync, 
-    mkdirSync 
+    mkdirSync,
+    readdirSync
 } = require('fs');
 
-const { join } = require('path');
+const { join, resolve } = require('path');
 
 const { parse } = require('json2csv');
 
+const { escape } = require('escape-filename');
 
 
-const teamsCsvFilePath = join(__dirname, 'HNGi9\ CSV\ FILE\ -\ Sheet1.csv');
+const sourceFilePath = join(__dirname, 'source');
+let teamsCsvFilePath = '';
 
 (async () => {
+    const files  = readdirSync(sourceFilePath);
+
+    const csvFile = files.find(file => file.indexOf('csv') > -1 );
+
+    teamsCsvFilePath = resolve(sourceFilePath, escape(csvFile.toString()));
 
     const updatedTeamsData = [];
 

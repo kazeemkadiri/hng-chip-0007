@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "csvtojson": "^2.0.10",
+    "escape-filename": "^1.1.2",
     "json2csv": "^5.0.7"
   }
 }
