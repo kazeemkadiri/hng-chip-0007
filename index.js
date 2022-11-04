@@ -2,7 +2,11 @@ const crypto = require('crypto');
 
 const csv = require('csvtojson');
 
-const { writeFileSync } = require('fs');
+const { 
+    writeFileSync, 
+    existsSync, 
+    mkdirSync 
+} = require('fs');
 
 const { join } = require('path');
 
@@ -87,6 +91,12 @@ const teamsCsvFilePath = join(__dirname, 'HNGi9\ CSV\ FILE\ -\ Sheet1.csv');
 
     const outputJSONDir = join(__dirname, 'json-output');
 
+    if (!existsSync(outputJSONDir)) {
+        
+        mkdirSync(outputJSONDir);
+    
+    }
+
     // Set the current team name to the value of the first team.
     let currentTeamName = allTeamsData[0]['TEAM NAMES'];
 
@@ -113,7 +123,7 @@ const teamsCsvFilePath = join(__dirname, 'HNGi9\ CSV\ FILE\ -\ Sheet1.csv');
         updatedTeamsData.push(JSONOutput);
 
         // Save the JSON to file
-        writeFileSync(saveJSONFilePath, JSON.stringify( JSONOutput ) , { mode: cre});
+        writeFileSync(saveJSONFilePath, JSON.stringify( JSONOutput ));
 
     });
 
