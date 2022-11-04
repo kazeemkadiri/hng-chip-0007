@@ -3,7 +3,7 @@
 ### Install nodejs on your system if you don't have it installed
     https://nodejs.org/en/download/
 
-### 1. Place the source csv file into the root folder of the project.
+### 1. Place the source csv file into the source folder of the project.
 ### 2. Via the terminal, run "npm install".
 ### 3. Run "npm run start".
 
