@@ -138,7 +138,7 @@ let teamsCsvFilePath = '';
     // Convert updatedTeamsData array from JSON to csv
     const csvValue = convertToCsv();
     
-    const outputCsvPath = join(__dirname, 'HNGi9\ CSV\ FILE\ -\ Sheet1.output.csv');
+    const outputCsvPath = join(__dirname, `${csvFile}.output.csv`);
 
     writeFileSync(outputCsvPath, csvValue);
  })();
